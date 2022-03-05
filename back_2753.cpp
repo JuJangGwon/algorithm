@@ -5,8 +5,7 @@ using namespace std;
 int main(void)
 {
     int i;
-
-    cin >> i;
+    char d;
 
     if (i % 4 == 0)
     {
