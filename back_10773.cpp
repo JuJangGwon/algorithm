@@ -22,4 +22,4 @@ int main() {
     }
     cout << sum;
     return 0;
-}ㅁ
+}
