@@ -18,11 +18,11 @@ int main()
         cin >> v;
         d[v]++;
     }
-    for (int j = 0; j < 10001; j++)
+    for (int j = 1; j < 10001; j++)
     {
         for (int x = 0; x < d[j]; x++)
         {
-
+            cout << j << "\n";
         }
     }
     return 0;
