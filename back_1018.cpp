@@ -1,62 +1,69 @@
-#include <iostream>
-#include <string>
+    #include <iostream>
+    using namespace std;
 
-using namespace std;
+    char **board;
 
-string BW[8] = {"BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB"};
-string WB[8] = {"WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW","WBWBWBWB","BWBWBWBW"};
-string board[50];
-int if_BW(int x,int y)
-{
-    int sum = 0;
-    for(int i =y;i < y+8;i++)
+    int findDiff(int x, int y)
     {
-        for(int j = x;j<x+8;j++)
+        int BW_Cnt = 0;
+        int WB_Cnt = 0;
+
+        for (int i = x; i < x + 8; i++)
         {
-            if(BW[i][j]==board[i][j]) sum++;
+            for (int j = y; j < y + 8; j++)
+            {
+                if ((i + j) % 2 == 0)
+                {
+                    if (board[i][j] != 'B')
+                        BW_Cnt++;
+                    else
+                        WB_Cnt++;
+                }
+                else
+                {
+                    if (board[i][j] != 'W')
+                        BW_Cnt++;
+                    else
+                        WB_Cnt++;
+                }
+            }
         }
+
+        if (BW_Cnt > WB_Cnt)
+            return WB_Cnt;
+        else
+            return BW_Cnt;
     }
-    return sum;
-}
-int if_WB(int x,int y)
-{
-    int sum = 0;
-    for(int i =y;i < y+8;i++)
+
+    int main()
     {
-        for(int j = x;j<x+8;j++)
+        cin.tie(NULL);
+        ios::sync_with_stdio(false);
+
+        int N, M;
+        cin >> N >> M;
+
+        board = new char *[N];
+        for (int i = 0; i < N; i++)
+            board[i] = new char[M];
+
+        for (int i = 0; i < N; i++)
+            for (int j = 0; j < M; j++)
+                cin >> board[i][j];
+
+        int min = -1;
+        for (int i = 0; i + 7 < N; i++)
         {
-             if(WB[i][j]==board[i][j]) sum++;
+            for (int j = 0; j + 7 < M; j++)
+            {
+                int cnt = findDiff(i, j);
+                if (min == -1)
+                    min = cnt;
+                else if (min > cnt)
+                    min = cnt;
+            }
         }
+        cout << min;
+
+        return 0;
     }
-    return sum;
-}
-
-int main()
-{
-    int da;
-
-    int min = 64;
-    int num_x,num_y;
-
-    scanf("%d,%d",&num_x,&num_y);
-
-    for(int i = 0; i<num_y;i++)
-    {
-        for(int j = 0; j<num_x;j++)
-        {
-            scanf("%s",&board[j][i]);
-        }
-    }
-    for(int i = 0;i<num_y-8;i++)
-    {
-        for(int j =0; j<num_x-8;j++)
-        {
-            int temp = 0;
-            temp = board[i][j] == 'B' ? if_BW(j,i) : if_WB(j,i);
-            if(temp < min) min = temp;
-        }
-    }
-    printf("%d",min);
-
-    return 0;
-}

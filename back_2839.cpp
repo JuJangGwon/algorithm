@@ -2,25 +2,30 @@
 
 using namespace std;
 
-int dp(int a, int _5, int _3)
+int i = 0;
+
+void dfs(int a, int _5, int _3)
 {
     if ((a < 3 && a > 0) || a == 4 || a < 0)
     {
-        cout << "-1";
-        return 0;
+        return ;
     }
     else if (a == 0)
     {
         cout << _5 + _3;
-        return 0;
+        i++;
+        return ;
     }
-    return dp(a - 5, ++_5, _3) + dp(a - 3, _5, ++_3);
+    if (i == 0) dfs(a - 5, _5+1, _3);
+    if (i == 0) dfs(a - 3, _5, _3+ 1);
 }
 
 int main(void)
 {
     int d;
     cin >> d;
-    dp(d, 0, 0);
+    dfs(d, 0, 0);
+    if (i == 0)
+        cout << "-1";
     return 0;
 }

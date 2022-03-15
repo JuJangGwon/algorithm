@@ -1,20 +1,31 @@
-#include <iostream>
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-int main()
-{
-    int i;
-    int a[5];
-    cin >>i;
-    for (int v = 0; v < 5; v++)
-        cin >> a[v];
-    int count = 0;
-    for (int v = 0; v < 5; v++)
+    int main(void)
     {
-        if (a[v] == i)
-            count++;
+        int a;
+        int d = 5;
+        int v = 0;
+        int sum = 1;
+
+        cin >> a;
+        if (a == 1)
+        {
+            cout << "1"
+            return 0;
+        }
+        if (a <= 7 && a > 1)
+        {
+            cout << "2";
+            return 0;
+        }
+        while ((a > 0))
+        {
+            v = v + d++;
+            a = a - v;
+            sum++;
+        }
+        cout << sum;
+        return 0;
     }
-    cout << count;
-    return 0;
-}

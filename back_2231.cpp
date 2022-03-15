@@ -6,18 +6,26 @@ int main(void)
 {
     int i;
     int x;
-    int a[7];
-
-    //1234567
-
+    int result = 0;
+    int sum;
     cin >> i;
-    x = i;
-    for(int j = 0; j < 7; j++)
+
+    for (int c = 1 ; c < i; c++)
     {
-        i += x % 10;
-        x = x / 10;
+        x = c;
+        sum = c;
+        while (x != 0)
+        {
+            sum += x % 10;
+            x /= 10;
+        }
+        if (sum == i)
+        {
+            result = c;
+            break;
+        }
     }
-    cout << i;
+    cout << result;
 
     return 0;
 }
