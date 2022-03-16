@@ -8,7 +8,6 @@ int factor(int i)
         return 1;
     return i * factor(i - 1);
 }
-
 int main()
 {
     int i;

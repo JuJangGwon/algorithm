@@ -11,7 +11,14 @@ int main()
     for (int i = 0; i< a; i++)
     {
         cin >> x >> y >> z;
-        y = (z % x) * 100 + (z / x + 1);
+        if (z != 1)
+        {
+            y = (z % x) * 100 + (z / x + 1);
+        }
+        else
+        {
+            y = (z % x + 1) * 100 + (z / x);
+        }
         cout << y << "\n"; 
     }
     return 0;
