@@ -4,7 +4,7 @@
 
 using namespace std;
 
-vector <int> v;
+vector<int> v;
 
 void bs(int b)
 {
@@ -33,21 +33,25 @@ void bs(int b)
 
 int main()
 {
-    int a, b;
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+
+    int dd;
+    int a;
+    int b;
     cin >> a;
     for (int i = 0; i < a; i++)
     {
-        int t;
-        cin >> t;
-        v.push_back(t);
+        int d;
+        cin >> d;
+        v.push_back(d);
     }
     sort(v.begin(),v.end());
     cin >> b;
-    for (int i =0; i<b; i++)
+    for (int i = 0; i < b; i++)
     {
-        int t;
-        cin >> t;
-        bs(t);
+        scanf("%d",&dd);
+        bs(dd);
     }
     return 0;
 }

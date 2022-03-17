@@ -5,6 +5,9 @@ using namespace std;
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+
     int x, y;
     int a[500000];
     int b[500000];
@@ -18,16 +21,9 @@ int main()
     cin >> y;
     for (int i = 0; i < y; i++)
     {
-        cin >> b[i];
-    }
-    for (int i = 0; i < y; i++)
-    {
-        int sum = 0;
-        int pivot = x / 2;
-        while ()
-        {
-
-        }
+        int num;
+        cin >> num;
+        cout << upper_bound(a, a + x, num) - lower_bound(a, a+x, num) << " ";
     }
     return 0;
 }
