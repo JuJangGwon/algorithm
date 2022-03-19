@@ -18,7 +18,8 @@ int main()
             cin >> v;
             sum += v;
         }
-        printf("%.3f%",(float)sum / j);
+        cout << sum << " , " << j;
+        printf("%.3f",(float)sum / j);
     }
     return 0;
 }
