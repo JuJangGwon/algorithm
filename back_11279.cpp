@@ -50,6 +50,10 @@ void push(int num)
         else
             break;
     }
+    for (int i = 0; i < pivot; i++)
+    {
+        cout << M_heap[i] << ", ";
+    }
 }
 int main()
 {
