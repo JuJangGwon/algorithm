@@ -27,8 +27,8 @@ int main()
     cout.tie(NULL);
 
     cin >> a >> b >> c;
-
-    find(0,0,pow(2, a);
+    int size = pow(2, a);
+    find(0,0, size);
 
     return 0;
 }
