@@ -15,6 +15,11 @@ void find(int x, int y, int size)
         sum++;
         return ;
     }
+    if (x > b  && y > c)
+    {
+        sum+= size * size;
+        return ;
+    }
     find(x,y,size /2);
     find(x + size /2,y,size /2);
     find(x,y + size / 2,size /2);

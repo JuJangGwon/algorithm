@@ -8,25 +8,26 @@ using namespace std;
 int main()
 {
     string st;
-    int a, b;
+    int a, b, c;
     int sum = 0;
 
     cin >> a >> b;
-    cin >> st;
-    for (int i = 0; i < st.size() -2; i++)
+    cin >>   st;
+    for (int i = 0; i < st.size() - (2 * a) ; i++)
     {
+        c = 0;
         if (st[i] == 'I')
         {
-            for (int j = 0; j < a; j++)
-            {
-                if (!(st[i + 1 + (j * 2)] ==  'O' && st[i + 2 + (j * 2)] == 'I'))
-                    break;
-                if (j == a - 1)
+           while (st[i + 1] == 'O' && st[i + 2] == 'I')
+           {
+             i += 2;
+               c++;
+                if (a == c)
                 {
-                      sum++;
-                    i++;
+                    sum++;
+                    c--;
                 }
-            }
+           }
         }
     }
     cout << sum;
