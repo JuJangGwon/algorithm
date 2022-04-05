@@ -1,34 +1,30 @@
 #include <iostream>
-#include <vector>
 
 using namespace std;
 
+int sum[100001];
+
 int main()
 {
-    int sum;
-    vector<int> v;
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
+    
+    int a, b;
+    
+    sum[0] = 0;
+    cin >> a >> b;
 
-    int n, m, p, j;
-
-    cin >> n >> m;
-    for (int i =0; i < n; i++)
+    for (int i = 1; i <= a; i++)
     {
         int d;
         cin >> d;
-        v.push_back(d);
+        sum[i] = sum[i-1] + d;
     }
-    for (int i = 0; i < m; i++)
+    for (int i = 0; i < b; i++)
     {
-        cin >> p >> j;
-        sum = 0;
-        for (int t = p; t <= j; t++)
-        {
-            sum += v[t-1];
-        }
-        cout << sum<< "\n";
+        int n, m;
+        cin >> n >> m;
+        cout << sum[m]-sum[n -1] << "\n";
     }
     return 0;
 }
