@@ -10,9 +10,9 @@ int main()
     cin >> a;
     for (int i = 3; i <= a; i++)
     {
-        dp[i] = dp[i-1] + dp[i-2];
+        dp[i] = (dp[i-1] + dp[i-2]) % 10007;
     }
-    cout << dp[a] % 10007;
+    cout << dp[a];
 
     return 0;
 }
