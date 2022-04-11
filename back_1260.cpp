@@ -5,19 +5,28 @@
 
 using namespace std;
 
+int a, b, c, start;
+
 vector<int> v[1001];
 bool vv[1001];
 
 void DFS(int idx)
 {
-    cout << idx << " ";
-    for (int i = 1; )
+        cout << idx << " ";
+        vv[idx] = true;
+
+    for (int i = 1; i <= a; i++)
+    {
+        if (!vv[i])
+        {   
+            DFS(i);
+        }
+    }
 }
 
 int main()
 {
     stack<int> st;
-    int a, b, c, start;
     cin >> a >> b >>c;
 
     for (int i = 0; i < b; i++)
@@ -30,5 +39,6 @@ int main()
     {
         sort(v[i].begin(),v[i].end());
     }
+    DFS(c);
     return 0;
 }
