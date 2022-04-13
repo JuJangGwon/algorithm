@@ -66,6 +66,7 @@ int main()
             }
         }
         cout << sum << "\n";
+        reset();
     }
     return 0;
 }
