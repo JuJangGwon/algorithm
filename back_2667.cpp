@@ -30,9 +30,7 @@ void dfs(int x, int y)
 int main()
 {
     vector<int> oa;
-    ios::sync_with_stdio(false);
     cin.tie(NULL);
-    cout.tie(NULL);
 
     cin >> num;
     for (int i = 1; i<= num; i++)
