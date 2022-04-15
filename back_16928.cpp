@@ -24,7 +24,7 @@ void bfs()
         }
         for (int i = 1; i < 7; i++)
         {
-            if (!used[x+i])
+            if (!used[x+i] && x+i < 101)
             {
                 if (snakelader[x+i])
                 {
