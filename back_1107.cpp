@@ -12,7 +12,7 @@ int made(int num)
     for (int i = 0 ; i < c.size(); i++)
     {
         i*=10;
-        for (int j = c) 
+       // for (int j = c) 
     }
     return 0;
 }
