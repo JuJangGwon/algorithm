@@ -23,7 +23,7 @@ void dfs(int c, int d)
         for (int i = c; i < a; i++)
         {
             result[d] = num[i];
-            dfs(i+1, d+1);
+            dfs(i, d+1);
         }
     }
 }

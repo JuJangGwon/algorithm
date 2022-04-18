@@ -21,16 +21,16 @@ void dfs(int c, int d)
     }
     else
     {
-        int e = -11;
-        for (int i = c; i < a; i++)
+        int c = -11;
+        for (int i = 0; i < a; i++)
         {
             {
-                if(e != num[i])
+                if(!bnum[i] && c != num[i])
                 {
                     bnum[i] = true;
-                    e = num[i];
+                    c = num[i];
                     arr[d] = num[i];
-                    dfs(i,d+1);
+                    dfs(i + 1,d+1);
                     bnum[i] = false;
                 }
             }
