@@ -23,7 +23,7 @@ int main()
         }
     }
     arr2[1][1] = arr[1][1];
-
+    maxx = (long long)arr2[1][1];
     for (int i = 2; i <= a; i++)
     {
         for (int j = 1; j <= i; j++)
