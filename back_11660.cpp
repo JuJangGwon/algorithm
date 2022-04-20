@@ -16,9 +16,9 @@ int main()
     {
         for (int j = 1; j <= a; j++)
         {
-            cin >> map[j][i];
-            piror += map[j][i];
-            dp[j][i] = piror;
+            cin >> map[i][j];
+            piror += map[i][j];
+            dp[i][j] = piror;
         }
     }
     for (int i = 0; i < b; i++)

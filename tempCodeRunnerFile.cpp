@@ -1,39 +1,25 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int map[1025][1025];
-int dp[1025][1025];
+string a, b;
+int dp[1001][1001];
 
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-
-    int a, b, piror = 0;
     cin >> a >> b;
-    for (int i = 1; i <=a; i++)
-    {
-        for (int j = 1; j <= a; j++)
+    for (int i = 1; i <= a.size(); i++)
+    {   
+        for (int j = 1; j <= b.size(); j++)
         {
-            cin >> map[j][i];
-            piror += map[j][i];
-            dp[j][i] = piror;
+           dp[i][j] = max(dp[i-1][j],dp[i][j-1]);
+            if (a[i-1] == b[j-1])
+                dp[i][j]++;
         }
     }
-    for (int i = 0; i < b; i++)
-    {
-        int x1, y1, x2, y2;
-        cin >> x1 >> y1 >> x2 >> y2;
-        if (x1 == x2 && y1 == y2)
-        {
-            cout << map[y2][x2] << "\n";
-        }
-        else
-            if (!(y1 == 1 && x1 == 1))
-                cout << dp[y2][x2] - dp[y1][x1] << "\n";
-            else
-                cout << dp[y2][x2] << "\n";
-    }
+    cout << dp[b.size()-1][a.size()-1];
     return 0;
 }
