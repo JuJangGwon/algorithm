@@ -26,20 +26,18 @@ void bfs()
             result = y;
             num++;
         }
-        {
             if (x - 1 >= 0 && !used[x - 1])
             {
                 q.push(make_pair(x-1,y+1));
             }
             if (!used[x+1] && x + 1 <= 100000)
             {
-                q.push(make_pair(x-1,y+1));
+                q.push(make_pair(x+1,y+1));
             }
             if (!used[x*2] && x * 2 <= 100000)
             {
                 q.push(make_pair(x*2,y+1));
             }
-        }
     }
 }
 
