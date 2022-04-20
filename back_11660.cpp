@@ -3,7 +3,7 @@
 using namespace std;
 
 int map[1025][1025];
-int dp[1025][1025];
+long long dp[1025][1025];
 
 int main()
 {
