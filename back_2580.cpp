@@ -48,17 +48,16 @@ void make_sdoku(int num)
         view_sdoku();
         return ;
     }
-    for (int i = 0; i < v.size(); i++)
+    for (int i = 1; i <= 9; i++)
     {
         if (finish == true)
                 return ;
-        sdoku[v[num].second][v[num].first] = i + 1;
+        sdoku[v[num].second][v[num].first] = i;
         if (check(v[num].first,v[num].second))
-        {
-             
+        {    
             make_sdoku(num+1);
         }
-        
+        sdoku[v[num].second][v[num].first] = 0;
     }
 }
 int main()
