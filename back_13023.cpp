@@ -14,6 +14,7 @@ void dfs(int num1, int num2)
     if (num2 == 4)
     {
         ok = true;
+        return ;
     }
     for (int i = 0; i < v[num1].size(); i++)
     {
@@ -21,6 +22,7 @@ void dfs(int num1, int num2)
         {
             used[v[num1][i]] = true;
             dfs(v[num1][i],num2 + 1);
+            used[v[num1][i]] = false;
         }
     }
 }
@@ -29,7 +31,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    
+
     cin >> n >> m;
     for (int i = 0; i < m; i++)
     {
