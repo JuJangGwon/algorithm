@@ -35,7 +35,7 @@ void view_sdoku()
     {
         for (int j =0; j< 9; j++)
         {
-            cout << sdoku[i][j] << " ";
+            cout << sdoku[i][j];
         }
         cout << "\n";
     }
@@ -62,15 +62,13 @@ void make_sdoku(int num)
 }
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
     cout.tie(NULL);
 
     for (int i = 0; i < 9; i++)
     {
         for (int j = 0; j< 9; j++)
         {
-            cin >> sdoku[i][j];
+            scanf("%1d", &sdoku[i][j]);
             if (sdoku[i][j] == 0)
                 v.push_back(make_pair(j,i));
         }
