@@ -1,13 +1,14 @@
     #include <iostream>
     #include <queue>
 
+    #define MAX 1000000 + 1
     using namespace std;
 
     bool finish;
     int f,s,g,u,d;
-    bool bnum[1000001];
+    bool bnum[MAX];
 
-    void bfs()
+    int bfs()
     {
         queue <pair<int, int> > q;
         q.push(make_pair(s,0));
@@ -19,30 +20,34 @@
             q.pop();
             if (num == g)
             {
-                finish = true;
-                cout << time;
-                return ;
+                return time;
             }
-            if (!bnum[num+u] && num + u <= f)
+            if (num + u <= f && !bnum[num+u])
             {
                 bnum[num+u] = true;
                 q.push(make_pair(num+u,time+1));
             }
-            if (!bnum[num-d] && num - d > 0)
+            if (num - d > 0 && !bnum[num-d])
             {
                 bnum[num-d] = true;
                 q.push(make_pair(num-d,time+1)); 
             }
         }
-        if (finish == false)
-        {
-            cout << "use the stairs";
-        }
+        return -1;
     }
 
     int main()
     {
+         ios::sync_with_stdio(false);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+
         cin >> f >> s >> g >> u >> d;
-        bfs();
+        int a = bfs();
+        if (a == -1)
+            cout << "use the stairs";
+        else   
+            cout << a;
         return 0;
-    }
+    }   
