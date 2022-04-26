@@ -46,7 +46,7 @@ void bfs()
             q.push(make_pair(ovo,now_st + 'S'));
         }
         // L
-        ovo = (now % 1000) * 10 + now / 10000;
+        ovo = (now % 1000) * 10 + now / 1000;
         if (!bb[ovo])
         {
             bb[ovo] = true;
