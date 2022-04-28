@@ -27,11 +27,11 @@ void reset()
     }
 }
 
-int bfs()
+int bfs(int _x,int _y, int _z)
 {
     queue<pair<pair <int,int>,pair<int,int> > >q;
-    q.push(make_pair(make_pair(0,0),make_pair(0,0)));
-    bmap[0][0][0] = true;
+    q.push(make_pair(make_pair(_x,_y),make_pair(_z,0)));
+    bmap[_z][_y][_x] = true;
     while (!q.empty())
     {
         int xx = q.front().first.first;
@@ -53,10 +53,15 @@ int bfs()
                 q.push(make_pair(make_pair(xxx,yyy),make_pair(zz,time+1)));
             }
         }
-        if (!bmap[zz+1][yy][xx] && map[zz+1][yy][xx] != '#')
+        if (zz + 1 < z && !bmap[zz+1][yy][xx] && map[zz+1][yy][xx] != '#')
         {
             bmap[zz+1][yy][xx] = true;
             q.push(make_pair(make_pair(xx,yy),make_pair(zz+1,time+1)));
+        }
+        if (zz - 1 >= 0 && !bmap[zz-1][yy][xx] && map[zz-1][yy][xx] != '#')
+        {
+            bmap[zz-1][yy][xx] = true;
+            q.push(make_pair(make_pair(xx,yy),make_pair(zz-1,time+1)));
         }
     }
 
@@ -80,7 +85,21 @@ int main()
                 }
             }
         }
-        int o = bfs();
+        int o;
+        for (int i = 0; i < z; i++)
+        {
+            for (int j = 0; j < y; j++)
+            {
+                for (int k = 0; k < x; k++)
+                {
+                    if (map[i][j][k] == 'S')
+                    {
+                        o = bfs(k,j,i);
+                    }
+                }
+            }
+        }
+        
         if (o == -1)
             cout << "Trapped!\n";
         else

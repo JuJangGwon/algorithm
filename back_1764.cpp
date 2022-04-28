@@ -20,7 +20,7 @@ int main()
         cin >> s;
         vv.push_back(s);
     }
-    sort(vv.front(), vv.end());
+   // sort(vv.front(), vv.end());
     for (int j = 0; j < m + n - 1; j++)
     {
         if (vv[j] == vv[j + 1])
