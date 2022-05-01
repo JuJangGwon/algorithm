@@ -23,17 +23,20 @@ void bfs(int x, int y)
         {
             int xx = x1 + dx[i];
             int yy = y1 + dy[i];
-            if (xx >= 1 && x <= b && yy >= 1 && yy <= a && !bmap[yy][xx])
+            if (xx >= 1 && x <= b && yy >= 1 && yy <= a)
             {
+                if (!bmap[yy][xx])
+                {
                 if (map[yy][xx] == '*')
                 {
                     q.push(make_pair(xx,yy));
-                //    bmap[yy][xx] = true;
+                    bmap[yy][xx] = true;
                 }
                 else if (map[yy][xx] == '.')
                 {
                     map[yy][xx] = '*';
                     bmap[yy][xx] = true;
+                }
                 }
             }
         }
@@ -69,16 +72,18 @@ int bfs2()
         int time = q.front().second.second;
         if (!haha[time])
         {
-       //     haha[time] = true;
-       //     clear();
+            haha[time] = true;
+            clear();
         }
         q.pop(); 
         for (int i = 0; i< 4; i++)
         {
             int xx = x + dx[i];
             int yy = y +dy[i];
-            if (yy >= 1 && xx >= 1 && xx <= b && yy <= a && !bmap[yy][xx])
+            if (yy >= 1 && xx >= 1 && xx <= b && yy <= a)
             {
+                if (!bmap[yy][xx])
+                {
                 if (map[yy][xx] == '.')
                 {
                     q.push(make_pair(xx,make_pair(yy,time+1)));
@@ -88,6 +93,7 @@ int bfs2()
                 {
                     return time + 1;
                 }
+                }
             }
         }
     }
@@ -96,6 +102,8 @@ int bfs2()
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     cin >> a >> b;
 
     for (int i = 1; i <= a; i++)
