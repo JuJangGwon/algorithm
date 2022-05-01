@@ -19,7 +19,7 @@ void dfs(int x, int y,int c)
         if (xx >= 1 && xx <= b && yy >= 1 && yy <= a && !used[map[yy][xx]-'A'])
         {
             used[map[yy][xx]-'A'] = true;
-            dfs(yy,xx,c+1);
+            dfs(xx,yy,c+1);
             used[map[yy][xx]-'A'] = false;
         }
     }
@@ -34,7 +34,8 @@ int main()
             cin >> map[i][j];
         }
     }
-    dfs(1,1,0);
+    used[map[1][1]-'A'] = true;
+    dfs(1,1,1);
     cout << maxx;
     return 0;
 }

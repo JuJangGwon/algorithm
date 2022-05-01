@@ -13,8 +13,8 @@ void bfs()
     used[a] = true;
     while (!q.empty())
     {
-        int c = q.front().first;
-        int d = q.front().second;
+        int c = q.front().first; // 값 
+        int d = q.front().second; // 싸이클
 
         if (c == b)
         {
