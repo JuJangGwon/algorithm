@@ -81,14 +81,14 @@ void dfs(int now,int x, int y)
         maxx = max(maxx,check());
         return ;
     }
-    for (int i = y; i <= a; i++)
+    for (int i = 1; i <= a; i++)
     {
-        for (int j = x; j <= b; j++)
+        for (int j = 1; j <= b; j++)
         {
             if (map[i][j] == 0)
             {
                 map[i][j] = 1;
-                dfs(now+1,i,j);
+                dfs(now+1,j,i);
                 map[i][j] = 0;
             }
         }
