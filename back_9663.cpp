@@ -1,45 +1,35 @@
 #include <iostream>
-#include <vector>
-
+#define MAX 15
 using namespace std;
 
-int dx[8] = {0, 0, 1, -1, 1, -1, -1, 1};
-int dy[8] = {1, -1, 0, 0, 1, -1, 1, -1};
-bool map[16][16];
-bool bmap[16][16];
-int n;
-int sum = 0;
-vector<pair<int, int> >v[16];
+int col[MAX];
+int N, total = 0;
 
-
-
-bool check(int x, int y, int c)
+bool check(int level)
 {
-    for (int i = 1; i <= n; i++)
+    for(int i = 0; i < level; i++)
+        if(col[i] == col[level] || abs(col[level] - col[i]) == level - i)
+            return false;
+      
+    return true;
+}
+
+void nqueen(int x)
+{
+    if(x == N)
+        total++;
+    else
     {
-        for (int i = 1; i <=c; i++)
+        for(int i = 0; i < N; i++)
         {
-            map[v[i].front().second][v[i].front]
+            col[x] = i; 
+            if(check(x))
+                nqueen(x+1);
         }
     }
 }
-
-void dfs(int num, int now)
-{
-    if (num == 8)
-    {
-        sum++;
-        return ;
-    }
-    for (int i = now; i <= n; i++)
-    {
-        
-    }
-}
-
-int main()
-{
-    cin >> n;
-
-    return 0;
+int main() {
+    cin >> N;
+    nqueen(0);
+    cout << total;
 }

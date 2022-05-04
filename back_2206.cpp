@@ -8,13 +8,13 @@ int dy[4] = {1,-1,0,0};
 
 int a, b;
 int map[1001][1001];
-bool bmap[1001][1001];
+int bmap[1001][1001][2];
 
 int bfs()
 {
     queue<pair<pair<int,int>,pair<int,int> > >q;
     q.push(make_pair(make_pair(1,1),make_pair(1,0)));
-    bmap[1][1] = true;
+    bmap[1][1][0] = true;
     while(!q.empty())
     {
         int x = q.front().first.first;
@@ -30,16 +30,16 @@ int bfs()
         {
             int xx = x + dx[i];
             int yy = y + dy[i];
-            if (xx >= 1 && xx <= b && yy >= 1 && yy <= a && !bmap[yy][xx])
+            if (xx >= 1 && xx <= b && yy >= 1 && yy <= a)
             {
-                if (map[yy][xx] == 0)
+                if (map[yy][xx] == 0 && !bmap[yy][xx][breakblock])
                 {
-                    bmap[yy][xx] = true;
+                    bmap[yy][xx][breakblock] = true;
                     q.push(make_pair(make_pair(xx,yy),make_pair(time+1,breakblock)));
                 }
                 else if (map[yy][xx] == 1 && breakblock == 0)
                 {
-                    bmap[yy][xx] = true;
+                    bmap[yy][xx][1] = true;
                     q.push(make_pair(make_pair(xx,yy),make_pair(time+1,breakblock+1)));
 
                 } 
@@ -51,7 +51,6 @@ int bfs()
 
 int main()
 {
-    cin.tie(NULL);
     cin >> a >> b;
     for (int i = 1; i <= a; i++)
     {
