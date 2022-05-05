@@ -46,14 +46,14 @@ int main()
         v[b].push_back(make_pair(a,c));
         while (1)
         {
-            cin >> a;
-            if (a == -1)
+            cin >> b;
+            if (b == -1)
                 break;
             else
             {
-                cin >> b;
-                v[i].push_back(make_pair(a,b));
-                v[a].push_back(make_pair(i,b));
+                cin >> c;
+                v[a].push_back(make_pair(b,c));
+                v[b].push_back(make_pair(a,c));
             }
         }
     }
