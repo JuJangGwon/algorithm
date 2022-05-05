@@ -21,17 +21,20 @@ int main()
             dp[i][j] = piror;
         }
     }
+
     for (int i = 0; i < b; i++)
     {
         int x1, y1, x2, y2;
-        cin >> x1 >> y1 >> x2 >> y2;
+        cin >> y1 >> x1 >> y2 >> x2;
         if (x1 == x2 && y1 == y2)
         {
             cout << map[y2][x2] << "\n";
         }
         else
             if (!(y1 == 1 && x1 == 1))
+            {
                 cout << dp[y2][x2] - dp[y1][x1] << "\n";
+            }
             else
                 cout << dp[y2][x2] << "\n";
     }
