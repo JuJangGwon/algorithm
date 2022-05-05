@@ -1,67 +1,49 @@
 #include <iostream>
+#include <queue>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-int n, maxx, node;
-vector<pair<int,int> >v[100001];
+int a, b;
+int sum;
 bool used[100001];
 
-void clear()
+void bfs()
 {
-    for(int i = 1; i <= n; i++)
+    priority_queue<pair<int, int>, vector<pair<int,int> > ,greater<pair<int,int> > >q;
+    q.push(make_pair(0,a));
+    used[a] = true;
+    while (!q.empty())
     {
-        used[i] = false;
-    }
-}
-void dfs(int now, int sum)
-{
-    if (maxx < sum)
-    {
-        node = now;
-        maxx =sum;
-    }
-    for (int i = 0; i < v[now].size(); i++)
-    {
-        if(!used[v[now][i].first])
+        int x = q.top().second;
+        int y = q.top().first;
+        q.pop();
+        if (x == b)
         {
-            used[v[now][i].first] = true;
-            dfs(v[now][i].first,sum + v[now][i].second);
+            cout << y;
+            return ;
+        }
+        if (x-1>= 0 && !used[x-1])
+        {
+            used[x-1] = true;
+            q.push(make_pair(y+ 1,x-1));
+        }
+        if (x+1 <= 100000 && !used[x+1])
+        {
+            used[x+1] = true;
+            q.push(make_pair(y+1,x+1));
+        }
+        if (x*2 <= 100000 && !used[x*2])
+        {
+            used[x*2] = true;
+            q.push(make_pair(y,x*2));
         }
     }
 }
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
-
-    cin >> n;
-    for (int i = 1; i <= n; i++)
-    {
-        int a, b, c;
-        cin >> a >> b >> c;
-        v[a].push_back(make_pair(b,c));
-        v[b].push_back(make_pair(a,c));
-        while (1)
-        {
-            cin >> a;
-            if (a == -1)
-                break;
-            else
-            {
-                cin >> b;
-                v[i].push_back(make_pair(a,b));
-                v[a].push_back(make_pair(i,b));
-            }
-        }
-    }
-    used[1] =true;
-    dfs(1,0);
-    clear();
-    used[node] =true;
-    dfs(node,0);
-    cout << maxx;
+    cin >> a >> b;
+    bfs();
     return 0;
 }

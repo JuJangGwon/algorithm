@@ -1,5 +1,6 @@
 #include <iostream>
 #include <queue>
+#include <vector>
 
 using namespace std;
 
@@ -9,17 +10,23 @@ bool used[100001];
 
 void bfs()
 {
-    queue<pair<int, int> >q;
+    priority_queue<pair<int, int>, vector<pair<int,int> > ,greater<pair<int,int> > >q;
     q.push(make_pair(0,a));
+    used[a] = true;
     while (!q.empty())
     {
-        int x = q.front().second;
-        int y = q.front().first;
+        int x = q.top().second;
+        int y = q.top().first;
         q.pop();
-        if (x == 17)
+        if (x == b)
         {
             cout << y;
             return ;
+        }
+        if (x*2 <= 100000 && !used[x*2])
+        {
+            used[x*2] = true;
+            q.push(make_pair(y,x*2));
         }
         if (x-1>= 0 && !used[x-1])
         {
@@ -31,11 +38,7 @@ void bfs()
             used[x+1] = true;
             q.push(make_pair(y+1,x+1));
         }
-        if (x*2 <= 100000 && !used[x*2])
-        {
-            used[x*2] = true;
-            q.push(make_pair(y,x*2));
-        }
+        
     }
 }
 
