@@ -19,6 +19,7 @@ int main()
             cin >> map[i][j];
             piror += map[i][j];
             dp[i][j] = piror;
+
             
         }
     }
