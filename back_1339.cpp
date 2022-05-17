@@ -5,8 +5,9 @@
 using namespace std;
 int a;
 string str[11];
-int b[27];
-bool c[27];
+int b[11];
+bool c[11];
+bool ov[27];
 int mm;
 
 void make()
