@@ -4,10 +4,11 @@
 
 using namespace std;
 int a;
-string str[11];
-int b[11];
-bool c[11];
-bool ov[27];
+string str[12];
+int b[12];
+bool c[12];
+bool ov[28];
+int oo[28];
 int mm;
 
 void make()
@@ -19,7 +20,7 @@ void make()
         for (int j = 0; j < str[i].size(); j++)
         {
             sum *= 10;
-            sum += b[str[i][j]-'A'];
+            sum += b[oo[str[i][j]-'A']];
         }
         ss += sum;
     }
@@ -47,12 +48,20 @@ void dfs(int num)
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(NULL);
+    //ios::sync_with_stdio(false);
+    //cin.tie(NULL);
     cin >> a;
+    int nu = 0;
     for (int i = 1; i <= a; i++)
     {
         cin >> str[i];
+        for (int j = 0; j < str[i].size(); j++)
+        {
+            if (!oo[str[i][j] - 'A'])
+            {
+                oo[str[i][j] - 'A'] = ++nu;
+            }
+        }
     }
     dfs(0);
     cout << mm;
