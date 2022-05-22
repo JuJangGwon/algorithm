@@ -80,7 +80,7 @@ void dfs(int num)
             }
         }
     }
-    //if (!same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -110,7 +110,7 @@ void dfs(int num)
             }
         }
     }
-    //if (!same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -139,7 +139,7 @@ void dfs(int num)
             }
         }
     }
-    //if (!same(tempmap))
+     if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -169,7 +169,7 @@ void dfs(int num)
             }
         }
     }
-    //if (!same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }

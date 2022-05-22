@@ -43,7 +43,7 @@ bool same(int ma[][21])
 }
 void dfs(int num)
 {
-    if (num == 5)
+    if (num == 10)
     {
         findmax();
         return ;
@@ -80,7 +80,7 @@ void dfs(int num)
             }
         }
     }
-    //if (same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -110,7 +110,7 @@ void dfs(int num)
             }
         }
     }
-   // if (same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -139,7 +139,7 @@ void dfs(int num)
             }
         }
     }
-    // if (same(tempmap))
+     if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -169,7 +169,7 @@ void dfs(int num)
             }
         }
     }
-   // if (same(tempmap))
+    if (!same(tempmap))
     {
         dfs(num+1);
     }
@@ -188,6 +188,6 @@ int main()
             cin >> map[i][j];
         }
     }
-    dfs(1);
+    dfs(0);
     cout << oo;
 }
