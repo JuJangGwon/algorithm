@@ -188,6 +188,6 @@ int main()
             cin >> map[i][j];
         }
     }
-    dfs(1);
+    dfs(0);
     cout << oo;
 }
