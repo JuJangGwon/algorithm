@@ -5,7 +5,7 @@ using namespace std;
 int a, b;
 int map[100001];
 long long sum;
-int siz;
+int siz = 1;
 int m_size = 999999999;
 int main()
 {
@@ -16,6 +16,8 @@ int main()
     }
     int start = 1;
     int end = 1;
+    sum += map[start];
+    
     while (start <= a && end <= a)
     {
         if (sum >= b)
