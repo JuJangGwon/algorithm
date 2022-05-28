@@ -8,6 +8,7 @@ int main()
     cin >> a;
     for (int j = 0; j < a; j++)
     {
+        
     for (int i = 0; i < j + 1; i++)
     {
         cout << "*";
