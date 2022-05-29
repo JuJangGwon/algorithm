@@ -17,28 +17,29 @@ int main()
         for (int j = 1; j <= a; j++)
         {
             cin >> map[i][j];
-            piror += map[i][j];
-            dp[i][j] = piror;
-
-            
         }
     }
-
-    for (int i = 0; i < b; i++)
+    for (int i = 1; i <= a; i++)
     {
-        int x1, y1, x2, y2;
-        cin >> y1 >> x1 >> y2 >> x2;
-        if (x1 == x2 && y1 == y2)
+        for (int j =1; j<= a; j++)
         {
-            cout << map[y2][x2] << "\n";
+            dp[i][j] = map[i][j] + dp[i][j-1] + dp[i-1][j]- dp[i-1][j-1];
         }
-        else
-            if (!(y1 == 1 && x1 == 1))
-            {
-                cout << dp[y2][x2] - dp[y1][x1] << "\n";
-            }
-            else
-                cout << dp[y2][x2] << "\n";
     }
+    for (int i = 0; i<b; i++)
+    {
+        int a1, a2, b1, b2;
+        cin >> a1 >> a2 >> b1 >> b2;
+        cout << dp[b1][b2] +dp[a1-1][a2-1] - dp[a1-1][b2] - dp[b1][a2-1] << "\n";
+    }
+    //     for (int i = 1; i <=a; i++)
+    // {
+    //     for (int j = 1; j <= a; j++)
+    //     {
+    //         cout << dp[i][j] << " ";
+    //     }
+    //     cout << endl;
+    // }
+
     return 0;
 }
