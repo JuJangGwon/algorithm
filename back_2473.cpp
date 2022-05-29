@@ -4,8 +4,7 @@
     using namespace std;
 
     long long map[5001];
-    long long sums;
-    long long mins = 30000000003;
+    long long mins = 3000000001;
 
     int main()
     {
@@ -27,7 +26,7 @@
             int b = n-1;
             while (a < b)
             {
-                sums = map[a] + map[b] + map[i];
+                long long sums = map[a] + map[b] + map[i];
                 if (abs(sums) < mins)
                 {
                     mins = abs(sums);
@@ -39,7 +38,7 @@
                 {
                     a++;
                 }
-                else if (sums > 0)
+                else
                 {
                     b--;
                 }
