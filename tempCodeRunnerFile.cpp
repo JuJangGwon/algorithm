@@ -1,38 +1,43 @@
-#include <iostream>
+    #include <iostream>
 
-using namespace std;
+    using namespace std;
 
-int a, b;
-int map[100001];
-long long sum;
-int siz;
-int m_size = 999999999;
-int main()
-{
-    cin >> a >> b;
-    for (int i = 1; i <= a; i++)
+    int map[100001];
+    int main()
     {
-        cin >> map[i];
-    }
-    int start = 1;
-    int end = 1;
-    while (start <= a && end <= a)
-    {
-        if (sum >= b)
+        ios::sync_with_stdio(false);
+        cin.tie(NULL);
+
+        int a;
+        cin >> a;
+        for (int i = 1; i <= a; i++)
         {
-            m_size = min(m_size,siz);
-            siz--;
-            sum -= map[start];
-            start++;
+            cin >> map[i];
         }
-        else
+        int left = 1;
+        int right = a;
+        int mins = 2147483647;
+        int lefta;
+        int righta;
+
+        while (left < right)
         {
-            siz++;
-            end++;
-            sum += map[end];
+            int sum = (map[left] + map[right]);
+            if (abs(sum) < mins)
+            {
+                mins = sum;
+                lefta = map[left];
+                righta = map[right];
+            }
+            if (sum < 0)
+            {
+                left++;
+            }
+            else
+            {
+                right--;
+            }
         }
+        cout << lefta << " " << righta;
+        return 0;
     }
-    if (m_size == 999999999)
-        m_size = 0;
-    cout << m_size;
-}
