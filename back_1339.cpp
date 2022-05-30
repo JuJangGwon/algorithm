@@ -4,9 +4,9 @@
 
 using namespace std;
 int a;
-string str[12];
-int b[12];
-bool c[12];
+string str[14];
+int b[14];
+bool c[14];
 bool ov[28];
 int oo[28];
 int mm;
