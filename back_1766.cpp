@@ -29,7 +29,7 @@ int main()
     {
         int x = q.top();
         q.pop();
-        cout << x;
+        cout << x << " ";
         for (int i = 0; i < v[x].size();i++)
         {
             int y = v[x][i];
