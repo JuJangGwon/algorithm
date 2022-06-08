@@ -19,13 +19,13 @@ void djikstra(int start)
         int now = pq.top().second;
         int nowcost = pq.top().first;
         pq.pop();
-        if (dist[par.second] < par.first)
+        if (dist[par.second] < par.first)     // 이미 거리비용이 , 큐에 담겨잇는 비용보다 작으면 skip
             continue;
         for (int i = 0; i < v[par.second].size(); i++)
         {
-            int nextcost = v[par.second][i].second + nowcost;
-            int next = v[par.second][i].first;
-            if (dist[next] > nextcost)
+            int nextcost = v[par.second][i].second + nowcost;       // 다음 비용 = 지금 비용 + 다음 노드의 비용
+            int next = v[par.second][i].first;                       // 다음 노드
+            if (dist[next] > nextcost)                      // 만약에 다음 노드의 비용이 계산된 비용보다 클때 최신화
             {
                 dist[next] = nextcost;
                 pq.push(make_pair(dist[next],next));
