@@ -4,48 +4,55 @@
 
 using namespace std;
 
-vector<pair<int,int> >v[1001];
-int dis[1001];
+int n,m;
+vector<pair<int,int> > v[1001];
+int dist[1001];
 
-void dijkstra(int s)
+void djikstra(int start)
 {
-    priority_queue<pair<int ,int>, vector<pair<int, int> >, greater<pair<int,int> > > pq;
-    pq.push(make_pair(0,s));
-    dis[s] = 0;
+    priority_queue<pair<int,int>, vector<pair<int,int> >, greater<pair<int,int> > > pq;
+    pq.push(make_pair(0,start));
+    dist[start] = 0;
     while(!pq.empty())
     {
-        pair<int,int> par = pq.top();
+        pair<int,int> par = pq.top();   
+        int now = pq.top().second;
+        int nowcost = pq.top().first;
         pq.pop();
-        if (dis[s] < par.first)
+        if (dist[par.second] < par.first)
             continue;
-        for (int i = 0; i < v[s].size(); i++)
+        for (int i = 0; i < v[par.second].size(); i++)
         {
-            int next = v[s][i].first;
-            if (dis[next] > dis[par.second] + v[par.second][i].first)
+            int nextcost = v[par.second][i].second + nowcost;
+            int next = v[par.second][i].first;
+            if (dist[next] > nextcost)
             {
-                dis[next] = dis[par.second] + v[par.second][i].first;
-                pq.push(make_pair(dis[next],next));
+                dist[next] = nextcost;
+                pq.push(make_pair(dist[next],next));
             }
         }
     }
+
 }
+
 int main()
 {
-    int n, m, o,oo;
     cin >> n >> m;
+
     for (int i = 1; i <= m; i++)
     {
         int a, b, c;
         cin >> a >> b >> c;
         v[a].push_back(make_pair(b,c));
-        v[b].push_back(make_pair(a,c));
+      //  v[b].push_back(make_pair(c,a));
     }
-    for (int i = 1 ; i <= n; i++)
+    for (int i = 0; i <= n; i++)
     {
-        dis[i] = 999999999;
+        dist[i] = 987654321;
     }
-    cin >> o >> oo;
-    dijkstra(o);
-    cout << dis[oo];
-
+    int a, b;
+    cin >> a >> b;
+    djikstra(a);
+    cout << dist[b];
+    return 0;
 }
