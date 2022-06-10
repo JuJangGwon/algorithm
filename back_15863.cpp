@@ -12,7 +12,7 @@ vector<pair<int, int> > v;
 void DFS(int cnt)
  {
     if(cnt == v.size()) {
-        ans = min(ans, countMap());
+        //ans = min(ans, countMap());
         return;
     }
     int temp[9][9];
