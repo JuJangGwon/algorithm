@@ -48,7 +48,7 @@ void djikstra()
                 {
                     next++;
                 }
-                if (windowmap[yy][xx] > next)
+                if (windowmap[yy][xx] >= next)   // >= !! 
                 {
                     windowmap[yy][xx] = next;
                     pq.push(make_pair(make_pair(next,i+1),make_pair(xx,yy)));
