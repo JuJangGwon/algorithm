@@ -2,6 +2,11 @@
 
 using namespace std;
 
+//
+//
+// 
+//
+//
 int main(void)
 {
     int i[9];
