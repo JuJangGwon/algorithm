@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-vector<make_pair<int, int> >chik;
+vector<pair<int, int> >chik;
 int chicknum;
 int map[51][51];
 int n;
