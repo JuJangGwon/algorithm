@@ -27,8 +27,8 @@ class Shark
     }
 };
 vector<Shark> v;
-
-int eat_shark(int a,int b)
+//0 0 0 9 0
+int eat_shark(int a,int b,int dir)
 {
     if (v[a-1].size > v[b-1].size)
     {   
@@ -40,6 +40,7 @@ int eat_shark(int a,int b)
     {
         //cout << v[a-1].size;
         shocks[a-1] = true;
+        v[b-1].dir = dir; 
         return b;
     }
 }
@@ -112,14 +113,14 @@ void move_shark()
             v[i].x = shark_x;
             v[i].dir = shark_dir;
             map[shark_y][shark_x] = i + 1;
+            //cout << v[map[shark_y][shark_x]].size;
         }
         else         // 현재 위치에 상어가 있으면
         {
-            int c = eat_shark(map[shark_y][shark_x], i + 1);
+            int c = eat_shark(map[shark_y][shark_x], i + 1, shark_dir);
             v[c-1].x = shark_x;
             v[c-1].y = shark_y;
-            v[c-1].dir = shark_dir;
-            map[shark_y][shark_x] = c;
+            map[v[c-1].y][v[c-1].x] = c;
         }
     }
     vector<Shark> sh;
@@ -156,7 +157,7 @@ void fish_shark()
     }
     if (min != -1)               // 가까이있는 물고기 찾았으면 낚시
     {
-      //  cout << "player_x : " << player_x << "  fish : " << v[min].size << endl;
+     //   cout << "player_x : " << player_x << "  fish : " << v[min].size << endl;
         result += v[min].size;
         v.erase(v.begin() + min);
     }
@@ -171,12 +172,12 @@ void Simul()
             cout << result;
             return ;
         }
-        // cout << endl;
-        // for (int i = 1; i <= y ;i++)
+        //cout << endl;
+        // for (int i = 1; i <= 10 ;i++)
         // {
-        //     for (int j = 1; j<= x; j++)
+        //     for (int j = 1; j<= 5; j++)
         //     {
-        //         cout << v[map[i][j]-1].size << " ";
+        //         cout << v[map[i][j]-1].dir << " ";
         //     }
         //     cout << endl;
         // }
@@ -185,7 +186,7 @@ void Simul()
         //cout << "움직이기\n";
         move_shark();
 
-        // cout << endl;
+        //cout << endl;
         // for (int i = 1; i <= y ;i++)
         // {
         //     for (int j = 1; j<= x; j++)
