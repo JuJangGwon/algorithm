@@ -18,12 +18,15 @@ int main()
     int start = 1;
     int end = 1;
     sum = map[1];
-    while (start <= a && end <= a) 
+
+    // 4 2
+    // 1 1 1 1
+    while (start <= a && end <= a)  // start 1 / end 1  // sum = 1    // start 1 / end 2 // sum = 2
     {
         if (sum < b)
         {
             end++;
-            sum += map[end];
+            sum += map[end];     
         }
         else if (sum == b)
         {
