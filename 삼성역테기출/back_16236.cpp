@@ -10,9 +10,9 @@ int map[22][22];
 bool bmap[22][22];
 int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
-pair<int,int> playerpos;
-vector<pair<int,pair<int,int> > > find_fish_pos;
-int player_level = 2;
+pair<int,int> playerpos;                                 // 아기상어 위치
+vector<pair<int,pair<int,int> > > find_fish_pos;           // 발견된 상어들 저장 벡터
+int player_level = 2;           
 int player_exp = 0;
 int result = 0;
 
@@ -72,7 +72,7 @@ void go()
     int x = find_fish_pos[0].second.first;
     int y = find_fish_pos[0].second.second;
     int t = find_fish_pos[0].first;
-    for (int i = 1; i < find_fish_pos.size(); i++)       // 찾은 물고기가 많다면 가장 위 / 가장 왼쪽 물고기 선택
+    for (int i = 1; i < find_fish_pos.size(); i++)       // 찾은 물고기가 많다면 가장 위 / 가장 왼쪽 물고기 찾기
     {
         if (t < find_fish_pos[i].first)
             break;
@@ -101,8 +101,8 @@ void go()
     playerpos.first = x;
     playerpos.second = y;
     result += t;
-    // map[y][x] = 9;
-    // cout << endl;
+
+    // cout << endl;                            // 확인용
     // for (int i = 1; i <= 6; i++)
     // {
     //     for (int j = 1; j <= 6; j++)
@@ -134,11 +134,11 @@ int main()
     while (1)
     {
         find_fish(playerpos);
-        if (!find_fish_pos.empty())
+        if (!find_fish_pos.empty())                 // 주변에 물고기를 찾았다면?
         {
-            go();
-        }
-        else
+            go();                                   // 이동
+        }  
+        else                                          // 물고기 발견 못할시 끝 
             break;
     }
     cout << result << "\n";
