@@ -52,7 +52,7 @@ void check()
           //  A = (end_p[arr[j]].first - end_p[arr[i]].first) * (start_p[arr[i]].second - end_p[arr[i]].second) - (end_p[arr[j]].second - end_p[arr[i]].second) * (start_p[arr[i]].first - end_p[arr[i]].first);
           //  B = (start_p[arr[j]].first - start_p[arr[i]].first) * (start_p[arr[i]].second - end_p[arr[i]].second) - (start_p[arr[j]].second - start_p[arr[i]].second) * (start_p[arr[i]].first - end_p[arr[i]].first);
              //   cout << A << ", " << B << " |  ";
-            if(isIntersect(make_pair(start_p[arr[i]],end_p[arr[i]]),make_pair(start_p[arr[j]],end_p[arr[j]])))
+            if(isIntersect(make_pair(start_p[i],end_p[i]),make_pair(start_p[j],end_p[j])))
             {
    
                // cout << "겹 ";
@@ -60,7 +60,7 @@ void check()
             }
         }
         //cout << (t + 1) *  power[arr[i]] << " ";
-        result += (t + 1) *  power[arr[i]];
+        result += (t + 1) *  power[i];
         if (re <= result)
             return ;
     }
@@ -74,15 +74,17 @@ void sortt()
     {
         for (int j = i + 1; j < num; j++)
         {
-            if (arr[i] > arr[j])
+            if (power[i] > power[j])
             {
-                int temp = arr[i];
-                arr[i] = arr[j];
-                arr[j] = temp;
+                int temp = power[i];
+                power[i] = power[j];
+                power[j] = temp;
                 pair<int,int> tempp = start_p[i];
                 start_p[i] = start_p[j];
+                start_p[j] = tempp;
+                tempp = end_p[i];
+                end_p[i] = end_p[j];
                 end_p[j] = tempp;
-                temmp 
             }
         }
     }
@@ -101,6 +103,9 @@ int main()
         end_p[i] = make_pair(c,d);
         cin >> power[i];
     }
-    sort();
+    sortt();
+    //cout << power[0];
+    check();
     cout << re;
+    
 }
