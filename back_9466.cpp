@@ -9,6 +9,7 @@ int t,a,b;
 int map[100001];
 int bmap[100001];
 int counts = 0;
+
 void dfs(int i)
 {
     bmap[i]++;
