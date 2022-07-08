@@ -9,13 +9,13 @@ int x,y,result;
 int player_x = 0;
 bool shocks[10001];
 
-class Shark
+class Shark                 
 {
     public:
     int x;
     int y;
     int speed;
-    int dir;            // 1 위 // 2 아래 // 3 오른쪽 // 4 왼쪽 
+    int dir;            // 1 위 // 2 아래 // 3 오른쪽 // 4 왼쪽                                                                                            
     int size;
     Shark(int x, int y, int speed, int dir, int size)
     {
@@ -28,7 +28,7 @@ class Shark
 };
 vector<Shark> v;
 
-int eat_shark(int a,int b,int dir)
+int eat_shark(int a,int b,int dir)              // 상어들이 겹쳤을때 상어 먹기
 {
     if (v[a-1].size > v[b-1].size)
     {   
@@ -44,7 +44,7 @@ int eat_shark(int a,int b,int dir)
         return b;
     }
 }
-void clear()
+void clear()                                // 맵에있는 값 초기화 해주는 함수
 {
     for (int i = 1; i <= y; i++)
     {
@@ -54,7 +54,7 @@ void clear()
         }
     }
 }
-void move_shark()
+void move_shark()                           // 상어가 움직일 때
 {
     clear();
     //memset(map,0,sizeof(map));
@@ -139,7 +139,7 @@ void move_shark()
     v = sh;
 }
 
-void fish_shark()
+void fish_shark()               // 상어 낚는 함수
 {
     player_x++;
     int min = -1;
@@ -167,34 +167,13 @@ void Simul()
 {
     while (1)
     {
-        if (player_x == x)
+        if (player_x == x)      // 낚시꾼이 맨 오른쪽에 도착하면 끝 
         {
             cout << result;
             return ;
         }
-        //cout << endl;
-        // for (int i = 1; i <= 10 ;i++)
-        // {
-        //     for (int j = 1; j<= 5; j++)
-        //     {
-        //         cout << v[map[i][j]-1].dir << " ";
-        //     }
-        //     cout << endl;
-        // }
-        // cout << "낚시\n";
         fish_shark();
-        //cout << "움직이기\n";
         move_shark();
-
-        //cout << endl;
-        // for (int i = 1; i <= y ;i++)
-        // {
-        //     for (int j = 1; j<= x; j++)
-        //     {
-        //         cout << v[map[i][j]-1].size << " ";
-        //     }
-        //     cout << endl;
-        // }
     }
 }
 

@@ -8,24 +8,27 @@ int t,a,b;
 
 int map[100001];
 int bmap[100001];
+int vv[100001];
+
 int counts = 0;
 
 void dfs(int i)
 {
-    bmap[i]++;
-    if (bmap[i] == 3)
+    if (bmap[i] == -1 || vv[i] == 1)
     {
         return ;
     }
-    else if (bmap[i] <= 2)
+    if (bmap[i] == 0)
     {
-        dfs(map[i]);
+        bmap[i] = 1;
     }
-    if (bmap[i] < 2)
+    else if (bmap[i] == 1)
     {
-        bmap[i] = 0;
-        return ;
+        counts++;
+        vv[i] = 1;
     }
+    dfs(map[i]);
+    bmap[i] = -1;
 }
 
 int main()
@@ -40,6 +43,7 @@ int main()
         counts = 0;
         memset(map,0,sizeof(map));
         memset(bmap,0,sizeof(bmap));
+        memset(vv,0,sizeof(vv));
         cin >> a;
         for (int i = 1; i<= a; i++)
         {
@@ -54,14 +58,7 @@ int main()
                 dfs(i);
             }
         }     
-        for (int i = 1; i <= a;i++)
-        {
-            if (bmap[i] == 0)
-            {
-                counts++;
-            }
-        }
-        cout << counts << "\n";
+        cout << a - counts << "\n";
     }
 
 }
