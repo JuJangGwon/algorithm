@@ -4,6 +4,7 @@ using namespace std;
 
 int n;
 int b;
+int map[201];
 int parent[201];
 
 int getparent(int a)
@@ -35,23 +36,24 @@ int main()
     cin >> n >> b;
     for (int i = 1; i<= n; i++)
     {
+        parent[i] = i;
+    }
+    for (int i = 1; i<= n; i++)
+    {
         for (int j = 1; j <=n; j++)
         {
             cin >> t;
             if (t == 1)
-            {
                 unionparent(i,j);
-                unionparent(j,i);
-            }
         }
     }
     int a;
     cin >> a;
-    int city = getparent(a);
     for (int i = 2; i <= b; i++)
     {
-        cin >> b;
-        if (!getparent(b) != city)
+        int d;
+        cin >> d;
+        if (!findparent(a,d))
         {
             cout << "NO";
             return 0;
