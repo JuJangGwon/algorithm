@@ -11,7 +11,7 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(NULL);
 
-    int o;
+    int o;  
     cin >> o;
 
     for (int i = 0; i < o; i++)

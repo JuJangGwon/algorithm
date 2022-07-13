@@ -15,24 +15,23 @@ int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
 
 
-void clear()
+void clear()            // 배열 초기화 해주는 함수
 {
     for (int i = 1; i <= a; i++)
     {
-        for (int j =1 ;j <=b; j++)
+        for (int j = 1; j <=b; j++)
         {
             tempmap[i][j] = map[i][j];
-          //  cout << tempmap[i][j] << " ";
             used[i][j] = false;
         }
     }
 }
-int check()
+int check()             // 바이러스 없는땅 갯수 return 
 {
     int sum = 0;
     for (int i = 1; i <= a; i++)
     {
-        for (int j =1 ; j<= b; j++)
+        for (int j = 1; j<= b; j++)
         {
             if (tempmap[i][j] == 0)
             {
@@ -43,12 +42,12 @@ int check()
     return sum;
 }
 
-void bfs()
+void bfs()                          // 바이러스 퍼지게하는 함수
 {
     clear();
 
     queue<pair<int,int> >q;
-    for(int i = 0; i < virus.size(); i++)
+    for(int i = 0; i < virus.size(); i++)           // 처음에 좌표입력 받을 때 바이러스 위치 기억해둔거 q에 넣기                
     {
         q.push(make_pair(virus[i].first,virus[i].second));
         used[virus[i].second][virus[i].first] = true;
@@ -73,9 +72,9 @@ void bfs()
 }
 
 
-void dfs(int now,int x, int y)
+void dfs(int now,int x, int y)              // dfs로 벽 조합 만들기 
 {
-    if (now == 3)
+    if (now == 3)           // 벽이 3개 만들어지면 바이러스 퍼트려서 안전한곳 몇개인지 체크
     {
         bfs();
         maxx = max(maxx,check());
@@ -103,7 +102,7 @@ int main()
         for (int j =1 ;j <= b; j++)
         {
             cin >> map[i][j];
-            if (map[i][j] == 2)
+            if (map[i][j] == 2)                 // 바이러스 위치 벡터에 입력하기 
                 virus.push_back(make_pair(j,i));    
         }
     }
