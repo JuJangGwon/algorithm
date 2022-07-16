@@ -4,8 +4,8 @@
 
 using namespace std;
 
-queue<pair <int, char> > xc;
-deque<pair<int, int> >dq;
+queue<pair <int, char> > xc;        // 이동명령 넣는 pair
+deque<pair<int, int> >dq;           // 뱀 몸 위치 담는 덱                                  
 
 int map[102][102]; // 1 사과 // 2 뱀 
 int dx[4] = {0,0,1,-1};
@@ -13,7 +13,7 @@ int dy[4] = {1,-1,0,0};
 
 int dir = 1; // 1 right 2 down 3 left 4 up
 int m;
-int ct = 1;
+int sec = 1;
 
 int main()
 {
@@ -24,7 +24,7 @@ int main()
     {
         int a, b;
         cin >> a >> b;
-        map[a][b] = 1;
+        map[a][b] = 1;      // 맵에 사과 그리기
     }
     int nn;
     cin >> nn;
@@ -32,15 +32,15 @@ int main()
     {
         int a;
         char b;
-        cin >> a >> b;
-        xc.push(make_pair(a,b));
+        cin >> a >> b; 
+        xc.push(make_pair(a,b));        // 명령 넣기 
     }
     dq.push_back(make_pair(1,1));
     while (1)
     {
         int player_x = dq.front().first;
         int player_y = dq.front().second;
-        //cout << player_x << ", " << player_y << " size : " << dq.size() << " time : " << ct << endl;
+        //cout << player_x << ", " << player_y << " size : " << dq.size() << " sec : " << sec << endl;
         // 커브
         // 이동
         if (dir == 1)
@@ -59,7 +59,7 @@ int main()
         {
             dq.push_front(make_pair(player_x,player_y+1));
         }
-        ct++;
+        sec++;      // 한번 진행때마다 1초씩 늘려주기
         // 끝나는지 안끝나는지 체크
         if (map[dq.front().second][dq.front().first] == 2)
         {
@@ -76,7 +76,7 @@ int main()
             dq.pop_back();
         }
         map[dq.front().second][dq.front().first] = 2;   
-        if (ct-1 == xc.front().first)
+        if (sec-1 == xc.front().first)
         {
             if (xc.front().second == 'D') // 왼
             {
@@ -95,5 +95,5 @@ int main()
             xc.pop();
         }     
     }
-    cout << ct-1;
+    cout << sec-1;
 }
