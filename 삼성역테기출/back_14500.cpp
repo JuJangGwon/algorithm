@@ -5,14 +5,14 @@ using namespace std;
 
 int dx[4] = {0,0,1,-1};
 int dy[4] = {1,-1,0,0};
-int shape_x1[4][4] = {{0,0,1,0},{0,1,1,2},{0,0,-1,0},{0,1,1,2}};           // ㅏ   
+int shape_x1[4][4] = {{0,0,1,0},{0,1,1,2},{0,0,-1,0},{0,1,1,2}};           // ㅏ ㅗ ㅓ ㅜ  모양                                             
 int shape_y1[4][4] = {{0,1,1,2},{0,0,1,0},{0,1,1,2},{0,0,-1,0}};
 
 int a, b, maxx, mmax;
 int map[501][501];
 bool bmap[501][501];
 
-void shapecheck(int x, int y)
+void shapecheck(int x, int y)    // dfs  ㅗ ㅏ ㅜ ㅓ 체크
 {
     for (int j = 0; j < 4; j++)
     {
@@ -34,7 +34,7 @@ void shapecheck(int x, int y)
     }
 }
 
-void dfs(int result, int sum, int x, int y)
+void dfs(int result, int sum, int x, int y)         // 4 모양 체크
 {
     if (result == 4)
     {
