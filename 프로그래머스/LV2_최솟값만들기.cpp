@@ -1,17 +1,18 @@
-#include <iostream>
-#include<vector>
-#include<algorithm>
-using namespace std;
+    #include <iostream>
+    #include<vector>
+    #include<algorithm>
 
-int solution(vector<int> A, vector<int> B)
-{
-    int answer = 0;
-    sort(A.begin(),A.end());
-    sort(B.begin(),B.end(),greater<int>());
-    
-    for (int i = 0; i < A.size(); i++)
+    using namespace std;
+
+    int solution(vector<int> A, vector<int> B)
     {
-        answer += A[i] * B[i];
+        int answer = 0;
+        sort(A.begin(),A.end());
+        sort(B.begin(),B.end(),greater<int>());
+        
+        for (int i = 0; i < A.size(); i++)
+        {
+            answer += A[i] * B[i];
+        }
+        return answer;
     }
-    return answer;
-}
