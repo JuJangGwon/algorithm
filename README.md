@@ -20,7 +20,10 @@
 백준 Gold3. [아기상어](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-16236-%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B4-c)  
 백준 Gold3. [스도쿠](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-2580-%EC%8A%A4%EB%8F%84%EC%BF%A0-c)  
 
-
+#### MST, 최단경로
+백준 Gold4 [최소 스패닝 트리](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-ctfkp7r9)
+백준 Gold4 [도시 분할 계획](https://velog.io/@tlsakch510?tag=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
+백준 Gold3 [파티](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)
 
 #### union-find 
 프로그래머스 LV2. [전력망을 둘로 나누기](https://velog.io/@tlsakch510/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A0%84%EB%A0%A5%EB%A7%9D%EC%9D%84-%EB%91%98%EB%A1%9C-%EB%82%98%EB%88%84%EA%B8%B0union-find-c)  
