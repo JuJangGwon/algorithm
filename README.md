@@ -20,10 +20,13 @@
 백준 Gold3. [아기상어](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-16236-%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B4-c)  
 백준 Gold3. [스도쿠](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-2580-%EC%8A%A4%EB%8F%84%EC%BF%A0-c)  
 
-#### MST, 최단경로
+#### MST
 백준 Gold4 [최소 스패닝 트리](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-ctfkp7r9)  
 백준 GOld4 [네트워크](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-1922-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-c)  
 백준 Gold4 [도시 분할 계획](https://velog.io/@tlsakch510?tag=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)  
+
+#### 최단경로
+
 백준 Gold3 [파티](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)  
 
 #### union-find 
