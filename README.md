@@ -24,7 +24,7 @@
 백준 Gold4 [최소 스패닝 트리](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-ctfkp7r9)  
 백준 GOld4 [네트워크](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-1922-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%AC-c)  
 백준 Gold4 [도시 분할 계획](https://velog.io/@tlsakch510?tag=%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)  
-
+백준 Platinum 5 [행성 터널](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-2887-%ED%96%89%EC%84%B1%ED%84%B0%EB%84%90-C)  
 #### 최단경로
 
 백준 Gold3 [파티](https://velog.io/@tlsakch510/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98)  
