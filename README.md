@@ -38,6 +38,8 @@
 프로그래머스 LV2. [배달](https://velog.io/@tlsakch510/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%B0%B0%EB%8B%AC-c)  
 
 ### Union-find 
+
+백준 Gold4. [거짓말](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-1043-%EA%B1%B0%EC%A7%93%EB%A7%90-c)  
+<br/>
 프로그래머스 LV2. [전력망을 둘로 나누기](https://velog.io/@tlsakch510/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%A0%84%EB%A0%A5%EB%A7%9D%EC%9D%84-%EB%91%98%EB%A1%9C-%EB%82%98%EB%88%84%EA%B8%B0union-find-c)  
 프로그래머스 LV3. [네트워크](https://velog.io/@tlsakch510/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%81%ACLv3-c)  
-백준 Gold4. [거짓말](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-1043-%EA%B1%B0%EC%A7%93%EB%A7%90-c)  
