@@ -18,6 +18,7 @@
 백준 Gold4. [테트로미노](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-14500-%ED%85%8C%ED%8A%B8%EB%A1%9C%EB%AF%B8%EB%85%B8-c)  
 백준 Gold4. [연구소](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-14502-%EC%97%B0%EA%B5%AC%EC%86%8C-c)  
 백준 Gold4. [미로만들기](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-2665-%EB%AF%B8%EB%A1%9C%EB%A7%8C%EB%93%A4%EA%B8%B0-C)  
+백준 Gold4. [DSLR](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-9019-DSLR-C)  
 백준 Gold3. [아기상어](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-16236-%EC%95%84%EA%B8%B0%EC%83%81%EC%96%B4-c)  
 백준 Gold3. [스도쿠](https://velog.io/@tlsakch510/%EB%B0%B1%EC%A4%80-2580-%EC%8A%A4%EB%8F%84%EC%BF%A0-c)  
 <br/>
