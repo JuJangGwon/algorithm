@@ -63,16 +63,16 @@ void track_path(int st, int ed)
     {
         for (int j = 0; j < map[_track[i]].size(); j++)
         {
-            if (map[_track[i]][_track[j]].first == _track[i-1])
+            if (map[_track[i]][j].first == _track[i-1])
             {
-                map[_track[i]][_track[j]].second = 0;
+                map[_track[i]][j].second = 0;
                 break;
             }
         }
     }
 }
 
-int solution(int n, int s, int a, int b, vector<vector<int>> fares) {
+int solution(int n, int s, int a, int b, vector<vector<int> > fares) {
     cclear(n);
     for (int i = 0; i < fares.size(); i++)            // 트리 생성 
     {
