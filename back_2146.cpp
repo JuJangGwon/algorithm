@@ -19,8 +19,8 @@ int dy[4] = {1, -1, 0, 0};
 void bfs2(int x, int y)
 {
     queue<pair<int, int> > q;
-    q.push(make_pair(x, y));
-    cout << x << "," << y << endl;
+    q.push(make_pair(x,y));
+    visited[y][x] = true;
     while (!q.empty())
     {
         int now_x = q.front().first;
@@ -54,6 +54,7 @@ void bfs()
         int dist = pq.front().first;
         int now_x = pq.front().second.first;
         int now_y = pq.front().second.second;
+        //cout << now_x << ", " << now_y << endl;
         pq.pop();
         for (int i = 0; i < 4; i++)
         {
@@ -61,7 +62,6 @@ void bfs()
             int next_y = now_y + dy[i];
             if (next_x >= 1 && next_x <= n && next_y >= 1 && next_y <= n && !visited[next_y][next_x])
             {
-                cout << next_x << ", " << next_y << endl; 
                 if (map[next_y][next_x] == 0)
                 {
                     visited[next_y][next_x] = true;
@@ -69,7 +69,7 @@ void bfs()
                 }
                 else if (map[next_y][next_x] == 1)
                 {
-                    cout << dist + 1 << endl;
+                    //cout << dist + 1 << endl;
                     result = min(result,dist + 1);      // 초기화
                     return ;
                 }
@@ -87,8 +87,8 @@ void findfirstAREA()
             if (map[i][j] == 1 && visited[i][j] == false)
             {
                 v.push_back(make_pair(j,i));
-                bfs2(j, i);
                 visited[i][j] = true;
+                bfs2(j, i);
             }
         }
     }
@@ -108,8 +108,12 @@ int main()
         }
     }
     findfirstAREA();
-    //
+    
     int a = v.size();
+    for (int i = 0 ; i < a; i++)
+    {
+        //cout << v[i].first << ", " << v[i].second << endl;
+    }
     for (int i = 0; i < a; i++)
     {
        memset(visited,false,sizeof(visited));
@@ -120,5 +124,5 @@ int main()
     }
      if (result == 999999)
      result = 0;
-    cout << v.size();
+    cout << result;
 }
