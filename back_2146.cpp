@@ -5,7 +5,6 @@
 
 using namespace std;
 
-//queue<pair<int, pair<int, int> >, vector<pair<int, pair<int, int> > >, greater<pair<int, pair<int, int> > > > pq;
 queue<pair<int,pair<int,int > > > pq;
 int map[101][101];
 bool visited[101][101];
@@ -54,7 +53,6 @@ void bfs()
         int dist = pq.front().first;
         int now_x = pq.front().second.first;
         int now_y = pq.front().second.second;
-        //cout << now_x << ", " << now_y << endl;
         pq.pop();
         for (int i = 0; i < 4; i++)
         {
@@ -69,7 +67,6 @@ void bfs()
                 }
                 else if (map[next_y][next_x] == 1)
                 {
-                    //cout << dist + 1 << endl;
                     result = min(result,dist + 1);      // 초기화
                     return ;
                 }
@@ -78,7 +75,7 @@ void bfs()
     }
 }
 
-void findfirstAREA()
+void findAREA()
 {
     for (int i = 1; i <= n; i++)
     {
@@ -107,13 +104,10 @@ int main()
             cin >> map[i][j];
         }
     }
-    findfirstAREA();
+    findAREA();
     
     int a = v.size();
-    for (int i = 0 ; i < a; i++)
-    {
-        //cout << v[i].first << ", " << v[i].second << endl;
-    }
+  
     for (int i = 0; i < a; i++)
     {
        memset(visited,false,sizeof(visited));
