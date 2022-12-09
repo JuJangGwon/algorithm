@@ -6,9 +6,9 @@ int map[9][9];
 
 int main()
 {
-    int result = 0;
-    int result_x;
-    int result_y;
+    int result = -1;
+    int result_x= 0;
+    int result_y = 0;
     
     for (int i =0; i < 9; i++)
     {
