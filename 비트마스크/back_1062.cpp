@@ -4,22 +4,22 @@
 using namespace std;
 
 int word[51];
-int n, k, m =0;
+int n, k, max_word =0;
 
-void check(int num)
+void check(int num)                     // 조합으로 몇개의 단어를 만들수 있는지 체크
 {
     int t =0;
     for (int i =0; i < n; i++)
     {
-        if ((word[i] & num) == word[i])
+        if ((word[i] & num) == word[i])     // & 연산을 이용해 word[i]의 비트가 num 비트에 모두 포함 되는지 체크
         {
             t++;
         }
     }
-    m = max(t,m);
+    max_word = max(t,max_word);
 }
 
-void dfs(int start, int num, int now)
+void dfs(int start, int num, int now)               // dfs로 조합 만들기 
 {
     if (now == k)
     {
@@ -46,7 +46,7 @@ int main()
     cin.tie(NULL);
     cout.tie(NULL);
     
-    int visited = 0;
+    int learned = 0;
     
     cin >> n >> k;
      
@@ -69,11 +69,14 @@ int main()
         cout << n << "\n";
         return 0;
     }
-	visited |= 1 << ('a'-'a');
-    visited |= 1 << ('n'-'a');
-    visited |= 1 << ('t'-'a');
-    visited |= 1 << ('i'-'a');
-    visited |= 1 << ('c'-'a');
-    dfs(1,visited,5);
-    cout << m << "\n";
+
+    // 조합 만들 때 시간 초과 방지로 'a n t i c'를 미리 체크 해놓기
+	learned |= 1 << ('a'-'a');     
+    learned |= 1 << ('n'-'a');
+    learned |= 1 << ('t'-'a');
+    learned |= 1 << ('i'-'a');
+    learned |= 1 << ('c'-'a');
+
+    dfs(1,learned,5);
+    cout << max_word << "\n";
 }

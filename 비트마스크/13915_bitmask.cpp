@@ -22,6 +22,5 @@ int main()
             s.insert(temp);
         }
             cout << s.size() << "\n";
-
     }
 }
