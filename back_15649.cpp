@@ -27,13 +27,14 @@ void dfs(int k)
             v[i+1] = true;
             dfs(k+1);
             v[i+1] = false;
-            result[k] = 0;
          }
     }
 }
 
 int main()
 {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
     cin >> a >> b;
     dfs(0);
     return 0;
