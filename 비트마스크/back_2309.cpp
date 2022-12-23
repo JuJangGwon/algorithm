@@ -7,7 +7,7 @@ int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(NULL);
-    
+
     int n[9];
     int sum =0;
 
@@ -36,6 +36,7 @@ int main()
                     if (!(j & (1 << i)))
                         cout << n[i] << "\n";
                 }
+                return 0;
             }
     }
 }
