@@ -2,6 +2,7 @@
 #include <queue>
 
 using namespace std;
+bool used[100001];
 
 int main()
 {
@@ -19,17 +20,20 @@ int main()
             return 0;
         }
         q.pop();
-        if (x * 2 <= 100000)
+        if (x * 2 <= 100000 && !used[x*2])
         {
             q.push(make_pair(time+1, x*2));
+            used[x*2] = true;
         }
-        if (x + 1 <= 100000)
+        if (x + 1 <= 100000&& !used[x+1])
         {
             q.push(make_pair(time+1, x+1));
+            used[x+1] = true;
         }
-        if (x - 1 >= 0)
+        if (x - 1 >= 0&& !used[x-1])
         {
             q.push(make_pair(time+1, x-1));
+            used[x-1] = true;
         }
     }
     return 0;
