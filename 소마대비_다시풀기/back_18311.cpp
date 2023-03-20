@@ -19,21 +19,27 @@ int main()
     {
         cin >> map[i];
     }
-    while (sum <= K && pivot <= N)
+
+    for (int i = 1; i <= N; i++)
     {
-        sum += map[pivot];
-        pivot++;
+        sum += map[i];
+        if (sum > K)
+        {
+            cout << i;
+            return 0;
+        }
     }
-    if (sum >= K)
+    if (sum <= K)
     {
-        cout << pivot - 1;
-        return 0;
+        for (int i = N; i >= 1; i--)
+        {
+            sum += map[i];
+            if (sum > K)
+            {
+                cout << i;
+                return 0;
+            }
+        }
     }
-    while (sum <= K && pivot > 0)
-    {
-        sum += map[pivot];
-        pivot--;
-    }
-    cout << pivot + 1;
     return 0;
 }
