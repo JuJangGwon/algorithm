@@ -19,7 +19,7 @@ int lcm(int a, int b)
     return a * b / gcd(a, b);
 }
 
-vector<int> solution(int n, int m)
+vector<int> solution(int n, int m)x
 {
     vector<int> answer;
 
