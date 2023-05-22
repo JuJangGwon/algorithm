@@ -44,7 +44,6 @@ int main()
         int a, b, c;
         cin >> a >> b >> c;
         v[a].push_back(make_pair(b,c));
-      //  v[b].push_back(make_pair(c,a));
     }
     for (int i = 0; i <= n; i++)
     {
