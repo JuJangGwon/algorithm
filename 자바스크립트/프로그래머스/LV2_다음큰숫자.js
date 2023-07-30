@@ -4,4 +4,4 @@ function solution(n) {
       n++;
       if (n.toString(2).split("1").length === oneNum) return n;
     }
-  }
+  }ㅣ
