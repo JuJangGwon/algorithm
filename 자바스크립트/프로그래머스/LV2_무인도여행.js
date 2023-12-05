@@ -1,55 +1,38 @@
-const xx = [1,-1,0,0];
-const yy = [0,0,1,-1];
-
-
 function solution(maps) {
-    var answer = [];
-
-    const x = maps[0].length;
-    const y = maps.length;
-    
-    const visited = Array.from({ length: y }, () => Array(x).fill(0));
-    function bfs(num)
-    {
-        let ans = 0;
-        const queue = [num];
-        while(queue.length)
-        {
-            const c = queue.shift();
-            const x1 = c.x;
-            const y1 = c.y;
-          
-            ans += Number(maps[y1][x1]);
-            
-            for(let i =0 ;i < 4; i++)
-            {
-                const now_x = x1+xx[i];
-                const now_y = y1+yy[i];
-                
-                if (now_x >= 0 && now_y >= 0 && now_x < x && now_y < y)
-                {
-                    if(visited[now_y][now_x] === 0 && maps[now_y][now_x] !== "X")
-                    {
-                        visited[now_y][now_x] = 1;
-                        queue.push({x:now_x, y : now_y});
-                    }
-                }
-            }
+    const result = [];
+    const [R, C] = [maps.length, maps[0].length];
+    const visited = Array.from({ length: R }, () => Array(C).fill(0));
+    const move = [[0, 1], [0, -1], [1, 0], [-1, 0]];
+  
+    const bfs = (a, b) => {
+      let cnt = 0;
+      const q = [[a, b]];
+      cnt += parseInt(maps[a][b]);
+      visited[a][b] = 1;
+  
+      while (q.length) {
+        const [r, c] = q.shift();
+        for (let i = 0; i < 4; i++) {
+          const nr = r + move[i][0];
+          const nc = c + move[i][1];
+          if (nr >= 0 && nc >= 0 && nr < R && nc < C && 
+              !visited[nr][nc] && maps[nr][nc] !== "X") {
+            visited[nr][nc] = 1;
+            cnt += parseInt(maps[nr][nc]);
+            q.push([nr, nc]);
+          }
         }
-        return ans;
+      }
+      result.push(cnt);
+    };
+  
+    for (let i = 0; i < R; i++) {
+      for (let j = 0; j < C; j++) {
+        if (!visited[i][j] && maps[i][j] !== "X") bfs(i, j);
+      }
     }
-    
-    for (let i = 0; i < y; i++)
-    {
-        for (let j =0; j < x; j++)
-        {
-            if(visited[i][j] === 0 &&  maps[i][j] !== "X")
-            {
-                visited[i][j] = 1;
-                answer.push( bfs({x:j,y:i}));
-            }
-        }
-    }
-    
-    return answer.length ? answer.sort() : [-1];
-}
+  
+    if (result.length === 0) return [-1];
+  
+    return result.sort((a, b) => a - b);
+  }
