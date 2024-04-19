@@ -17,3 +17,4 @@ function solution(numbers) {
   }
   return answer;
 }
+채
