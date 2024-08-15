@@ -32,4 +32,4 @@ int main()
 		cout << two.front();
 		two.pop();
 	}
-}
+}ba
